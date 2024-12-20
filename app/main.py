@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 
 from sqlalchemy.orm import Session
 
-from database import engine, get_db
+from app.database import engine, get_db
 
 import crud, models, database, utility, schemas
 
