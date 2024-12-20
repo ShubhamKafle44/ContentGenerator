@@ -20,3 +20,15 @@ def create_generated_content(db:Session, content: str, search_term_id: int):
     db.commit()
     db.refresh()
     return db_generated_content
+
+
+
+def get_search_term(db:Session, term:str):
+    return db.query(models.SearchTerm).filter(models.SearchTerm.term == term).filter()
+
+def create_sentiment_analysis(db:Session, readability: str,sentiment:str, search_term_id: int):
+    db_sentiment_analysis = models.SentimentAnalysis(readability = readability, sentiment = sentiment, id = search_term_id)
+    db.add(db_sentiment_analysis)
+    db.commit()
+    db.refresh()
+    return db_sentiment_analysis

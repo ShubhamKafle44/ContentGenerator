@@ -13,7 +13,7 @@ class SearchTerm(Base):
     sentiment_analysis = relationship("SentimentAnalysis", back_populates="search_term")
 
 
-class GenereatedContent(Base):
+class GeneratedContent(Base):
     __tablename__ = "generated_content"
     id = Column(Integer, primary_key=True, index=True)
     content = Column(Text)
@@ -27,4 +27,4 @@ class SentimentAnalysis(Base):
     readability = Column(String)
     sentiment = Column(String)
     search_term_id = Column(Integer, ForeignKey('search_terms.id'))
-    search_term = relationship("SearchTerm", back_populates="setiment_analysis")
+    search_term = relationship("SearchTerm", back_populates="sentiment_analysis")
